@@ -24,15 +24,19 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Home</a>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="home"><i class="fas fa-chevron-right"></i>Dashboard</a>
                     </li>
-                    <li><a ng-click="headerctrl.closeSideNav()" ui-sref="login" class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Registered Events</a>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="login"><i class="fas fa-chevron-right"></i>Login Page</a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Venue Locator</a>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="register"><i class="fas fa-chevron-right"></i>Registration</a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Shuttle Bus Schedule</a>
+                    <li><a ng-click="headerctrl.closeSideNav()" ui-sref="registeredPgm" class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Programmes</a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Tickets Info</a>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="venueLocator"><i class="fas fa-chevron-right"></i>Venue Locator</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()"><i class="fas fa-chevron-right"></i>Shuttle Bus Schedule</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="ticketInfo"><i class="fas fa-chevron-right"></i>Tickets Info</a>
                     </li>
                 </ul>
             </li>

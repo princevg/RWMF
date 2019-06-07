@@ -11,6 +11,7 @@
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
         });
+
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./service-worker.js', {
                     scope: './'
@@ -44,8 +45,11 @@
         $rootScope.pageName = "home";
 
         function closeSideNav() {
-            angular.element('#sidenav-overlay').hide();
+            angular.element('.sidenav-overlay').hide();
         }
+        angular.element(document).on("click", "body", function() {
+            $('.button-collapse').sideNav('hide');
+        });
     }
 
 })();

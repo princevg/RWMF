@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('RWMF')
         .controller('ForgotController', ForgotController);
     ForgotController.$inject = ['UserService', '$rootScope'];
 

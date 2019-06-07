@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('RWMF', ['ui.router', 'ngCookies'])
+        .module('RWMF', ['ui.router', 'ngCookies', 'ngMap'])
         .config(config)
         .run(run);
 
@@ -17,6 +17,48 @@
                         controller: 'HomeController',
                         templateUrl: 'components/home/home.html',
                         controllerAs: 'homectrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
+                }
+            }).state('registeredPgm', {
+                url: '/registeredPgm',
+                views: {
+                    'innerPages': {
+                        controller: 'ProgramController',
+                        templateUrl: 'components/program/registeredProgram.html',
+                        controllerAs: 'pgmctrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
+                }
+            }).state('ticketInfo', {
+                url: '/ticketInfo',
+                views: {
+                    'innerPages': {
+                        controller: 'GeneralController',
+                        templateUrl: 'components/general/ticketInfo.html',
+                        controllerAs: 'genctrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
+                }
+            }).state('venueLocator', {
+                url: '/venueLocator',
+                views: {
+                    'innerPages': {
+                        controller: 'VenueController',
+                        templateUrl: 'components/general/venueLocator.html',
+                        controllerAs: 'venCtrl'
                     },
                     'header': {
                         controller: 'HeaderController',
@@ -61,21 +103,21 @@
         })
 
         .state('dashboard', {
-            url: '/dashboard',
-            views: {
-                'innerPages@': {
-                    controller: 'DashController',
-                    templateUrl: 'components/dashboard/dashboard.html',
-                    controllerAs: 'vm'
-                },
-                'header@': {
-                    controller: 'HeaderController',
-                    templateUrl: 'components/header/header.html',
-                    controllerAs: 'vm'
+                url: '/dashboard',
+                views: {
+                    'innerPages@': {
+                        controller: 'DashController',
+                        templateUrl: 'components/dashboard/dashboard.html',
+                        controllerAs: 'vm'
+                    },
+                    'header@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'vm'
+                    }
                 }
-            }
-        })
-        $urlRouterProvider.otherwise('/home');
+            })
+            // $urlRouterProvider.otherwise('/home');
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];

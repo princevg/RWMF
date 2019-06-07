@@ -14690,7 +14690,7 @@ dropdownSelectors.on({
                             endPosition: 0,
                             endTime: 0
                         }
-                    }, this.$body = e("body"), this.$menu = e("#".concat(this.$element.attr("data-activates"))), this.$sidenavOverlay = e("#sidenav-overlay"), this.$dragTarget = e('<div class="drag-target"></div>'), this.$body.append(this.$dragTarget), this.init()
+                    }, this.$body = e("body"), this.$menu = e("#".concat(this.$element.attr("data-activates"))), this.$sidenavOverlay = e(".sidenav-overlay"), this.$dragTarget = e('<div class="drag-target"></div>'), this.$body.append(this.$dragTarget), this.init()
                 }
                 return _createClass(d, [{
                     key: "init",
@@ -14755,7 +14755,7 @@ dropdownSelectors.on({
                     key: "buildSidenavOverlay",
                     value: function() {
                         var t = this;
-                        !0 === this.options.showOverlay && (this.$sidenavOverlay = e('<div id="sidenav-overlay"></div>'), this.$sidenavOverlay.css("opacity", 0).on("click", function() {
+                        !0 === this.options.showOverlay && (this.$sidenavOverlay = e('<div class="sidenav-overlay"></div>'), this.$sidenavOverlay.css("opacity", 0).on("click", function() {
                             t.removeMenu()
                         }), this.$body.append(this.$sidenavOverlay))
                     }
@@ -14869,7 +14869,7 @@ dropdownSelectors.on({
                         this.$element.on("click", function(n) {
                             if (n.preventDefault(), !0 === t.menuOut) t.menuOut = !1, t.removeMenu();
                             else {
-                                !0 === t.options.showOverlay ? (t.$sidenavOverlay = e('<div id="sidenav-overlay"></div>'), t.$body.append(t.$sidenavOverlay)) : t.showCloseButton();
+                                !0 === t.options.showOverlay ? (t.$sidenavOverlay = e('<div class="sidenav-overlay"></div>'), t.$body.append(t.$sidenavOverlay)) : t.showCloseButton();
                                 var i = [];
                                 i = "left" === t.options.edge ? [0, -1 * t.options.MENU_WIDTH] : [0, t.options.MENU_WIDTH], t.$menu.velocity({
                                     translateX: i

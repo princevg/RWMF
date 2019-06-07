@@ -28313,7 +28313,7 @@ span[data-jarallax-element] {
     z-index: 998
 }
 
-#sidenav-overlay {
+.sidenav-overlay {
     position: fixed;
     top: 0;
     left: 0;

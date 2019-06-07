@@ -1,11 +1,12 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('app')
+        .module('RWMF')
         .controller('RegisterController', RegisterController);
 
     RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
+
     function RegisterController(UserService, $location, $rootScope, FlashService) {
         var vm = this;
 
@@ -14,7 +15,7 @@
         function register() {
             vm.dataLoading = true;
             UserService.Create(vm.user)
-                .then(function (response) {
+                .then(function(response) {
                     if (response.success) {
                         FlashService.Success('Registration successful', true);
                         $location.path('/login');
