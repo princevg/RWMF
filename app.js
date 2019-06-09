@@ -103,21 +103,21 @@
         })
 
         .state('dashboard', {
-                url: '/dashboard',
-                views: {
-                    'innerPages@': {
-                        controller: 'DashController',
-                        templateUrl: 'components/dashboard/dashboard.html',
-                        controllerAs: 'vm'
-                    },
-                    'header@': {
-                        controller: 'HeaderController',
-                        templateUrl: 'components/header/header.html',
-                        controllerAs: 'vm'
-                    }
+            url: '/dashboard',
+            views: {
+                'innerPages@': {
+                    controller: 'DashController',
+                    templateUrl: 'components/dashboard/dashboard.html',
+                    controllerAs: 'vm'
+                },
+                'header@': {
+                    controller: 'HeaderController',
+                    templateUrl: 'components/header/header.html',
+                    controllerAs: 'vm'
                 }
-            })
-            // $urlRouterProvider.otherwise('/home');
+            }
+        })
+        $urlRouterProvider.otherwise('/home');
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
