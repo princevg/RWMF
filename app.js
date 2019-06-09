@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('RWMF', ['ui.router', 'ngCookies', 'ngMap'])
+        .module('RWMF', ['ui.router', 'ngCookies'])
         .config(config)
         .run(run);
 
