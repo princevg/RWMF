@@ -11,7 +11,6 @@
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
         });
-
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./service-worker.js', {
                     scope: './'

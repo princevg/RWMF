@@ -1,5 +1,5 @@
 .login-card {
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -46,14 +46,39 @@ h2.text-center.event-header {
 }
 
 .home {
-    background: url(../img/inner_bg-min.png) no-repeat center center fixed;
+    background: url(../img/inner_bg-min.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-.login .form-group:after {
+/*login*/
+
+.forgt{
+    text-align:right;
+    margin-bottom:.5rem !important;
+}
+
+.forgt a{
+    color:#ff8000;
+    font-size:.8rem;
+}
+
+.sgnup{
+    text-align:center;
+}
+
+.sgnup a{
+    color:#ff8000;
+    font-size:.9rem;
+}
+
+p.sgnup{
+    font-size:.8rem;
+}
+
+/*.login .form-group:after {
     content: "";
     width: 30px;
     position: absolute;
@@ -71,7 +96,7 @@ h2.text-center.event-header {
 .login .form-group.password:after {
     top: 77px;
     background-image: url(../img/password_min.png);
-}
+}*/
 
 .login input {
     padding-left: 30px;
@@ -106,7 +131,8 @@ h2.text-center.event-header {
 }
 
 .login.card {
-    background: rgb(242, 243, 245, .5)
+    background: rgba(242, 243, 245, 0.8);
+    border-radius: 8px !important;
 }
 
 .login .btn-primary[disabled] {
@@ -115,7 +141,7 @@ h2.text-center.event-header {
 }
 
 .form-group {
-    background-color: white;
+    background-color: transparent;
     opacity: 1;
 }
 
@@ -134,13 +160,16 @@ h2.text-center.event-header {
     margin-top: 4rem!important;
 }
 
+/*home*/
+
 .dattim {
     width: 165px;
-    border-radius: 10px !important;
-    top: -20px;
+    border-radius: 5px !important;
+    top: -5px;
     position: absolute;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    margin-left: 6% !important;
 }
 
 .dattim h4 {
@@ -156,7 +185,7 @@ h2.text-center.event-header {
 }
 
 .brdr {
-    border-radius: .6rem !important;
+    border-radius: 1rem !important;
 }
 
 .prgrmn {
@@ -164,7 +193,10 @@ h2.text-center.event-header {
     padding: 1rem;
     font-weight: 400;
     color: #fff;
+    font-size: 1.5rem;
 }
+
+/*sidemenu*/
 
 .mdb-skin .side-nav .collapsible li .collapsible-header:hover {
     background-color: #298979 !important;
@@ -385,14 +417,93 @@ table.table th {
     background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
 }
 
+/*forgot*/
+.forgot-logo{
+    background: url(../img/forgot-min.png) no-repeat;
+    height: 75px;
+    text-align: center;
+    background-position: center;
+    }
+    
+/*register*/
+.thank{
+    background:#006a36;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:10px;
+    border-radius:5px;
+}
+
+.thank p{
+    font-size:11px;
+    color:#fff;
+}
+
+.thank p a{
+    color:#fff;
+    text-decoration:underline;
+}
+
+/*home*/
+
+.noshad{
+    box-shadow:none !important;
+}
+
+.ninfyv{
+    width:95%;
+}
+
+.double-nav a {
+    font-size: 1.6rem;
+    color: #fff !important;
+}
+
+.double-nav .button-collapse {
+    font-size: 1.6rem;
+}
+
+.filter-btn .btn.form-check-label.active, .filter-btn .btn:not([disabled]):not(.disabled):active, .filter-btn .btn-primary:not(:disabled):not(.disabled):active, .filter-btn label.active {
+    background-color: transparent !important;
+    border-bottom: 0px solid yellow;
+    background:
+    linear-gradient(
+      to left, 
+      rgba(120,255,213,1) 0%,
+      rgba(120,255,213,1) 12%,
+      rgba(168,255,121,1) 47%,
+      rgba(168,255,121,1) 100%
+    )
+    left 
+    bottom
+    #777    
+    no-repeat; 
+  background-size:100% 5px ;
+}
+
 
 /* Media Queries */
 
 @media (max-height: 992px) {
+    
     .side-nav .logo-wrapper img {
         padding-top: 3%;
         padding-bottom: 3%;
     }
+    
+/*home*/
+
+    .navbar {
+        position: fixed;
+        padding:0;
+    }
+    
+    .double-nav .button-collapse {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+    
+    
 }
 
 
@@ -421,4 +532,183 @@ table.table th {
 
 /* Portrait phones and smaller */
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    
+    /*home*/
+    
+    .dattim h4 {
+    color: #ff8000;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    }
+    
+    .dattim h6 {
+    color: #787878 !important;
+    font-size: .9rem;
+    margin-bottom: 0;
+    }
+    
+    .dattim {
+    width: 91px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    }
+    
+    .nopad{
+        padding:0;
+    }
+    
+    .reverse .card-body{
+        padding: .5rem;
+    }
+    
+    h2.text-center.event-header {
+    font-size: 1.3rem;
+    }
+    
+    /*login*/
+    
+    .login input {
+    padding-left: 35px;
+    height: 60px;
+    }
+    
+    .login .btn, .login .btn-primary:not([disabled]):not(.disabled):active {
+    width: 100%;
+    height: 60px;
+    line-height: 30px;
+    font-size: 18px;
+    }
+    
+    .login.card {
+    width:100%;
+    }
+    
+    .username input{
+    background: url(../img/user-min.png) no-repeat scroll 2px 12px;
+    background-size: 30px 30px;
+    background-color: #f3f4f6;
+    }
+    
+    .password input{
+    background: url(../img/password_min.png) no-repeat scroll 2px 12px;
+    background-size: 30px 30px;
+    background-color: #f3f4f6;
+    }
+    
+    .email input{
+    background: url(../img/mail-min.png) no-repeat scroll 2px 12px;
+    background-size: 30px 30px;
+    background-color: #f3f4f6;
+    }
+    
+    .login-logo {
+    width: 265px;
+    height: 270px;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    }
+    
+    /*register*/
+    
+    .register-logo{
+        background-image: url(../img/registration_logo.png);
+        width: 256px;
+        height: 145px;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        position: relative;
+        left: -86px;
+    }
+    
+    .first{
+        width:49%;
+        float:left;
+        margin-right:2%;
+    }
+    
+    .last{
+        width:49%;
+        float:left;
+    }
+    
+    .gren{
+        width:49% !important;
+        float:left;
+        margin-top:0;
+        margin-right:2%;
+    }
+    
+    .card-body .gry{
+        width:49% !important;
+        float:left;
+        background-color:#686868 !important;
+        margin:0;
+    }
+    
+    .chck{
+        margin-top:6px;
+        margin-bottom:6px;
+    }
+    
+    .chck label{
+        font-size:11px;
+        color:#464646;
+    }
+    
+/*registered*/
+
+    .view-custom {
+    height: 150px;
+    }
+    
+    .widhgt{
+        width:35px !important;
+        height:auto !important;
+    }
+    
+    .social {
+    bottom: 6px;
+    }
+    
+    .location .time {
+    background-size: 25px;
+    }
+    
+    .location .event {
+    background-size: 25px;
+    }
+    
+    .location .address {
+    background-size: 25px !important;
+    }
+    
+    .location span{
+        font-size:.8rem;
+    }
+    
+    .maptheme img {
+    width: 35px;
+    }
+    
+    .nopad h4{
+        font-size:1.1rem !important;
+    }
+    
+    .nopad ul{
+        margin-bottom:0;
+    }
+    
+    .nopad .card-body{
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    .location li {
+    padding-left: 40px;
+    }
+
+    
+    
+    
+}

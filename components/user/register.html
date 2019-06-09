@@ -1,30 +1,45 @@
-<div class="top-register row pr-20 pl-20">
-    <div class="login card m-5 mx-auto">
+<div style="height: 100vh">
+    <div class="flex-center flex-column login-card">
 
-        <!--Card image-->
-        <div class="view overlay register-logo ">
-
+        
+        <div class="view overlay register-logo">
+        </div>
+        
+        <div class="thank">
+            <p>Thank you for registering as member, we would like to collect some basic information of your profile. The information collected here is for internal use only. Please see our <a href="">data privacy policy</a>.</p>
         </div>
 
         <!--Card content-->
-        <div class="card-body pt-0 ">
-            <div class="form-group username">
-                <input type="text" placeholder="User Name" class="form-control" id="usr">
-            </div>
-            <div class="form-group password">
-                <input type="password" placeholder="Password" class="form-control" id="pwd">
-            </div>
-            <div class="form-group username">
-                <input type="text" placeholder="User Name" class="form-control" id="usr">
-            </div>
-            <div class="form-group password">
-                <input type="password" placeholder="Password" class="form-control" id="pwd">
-            </div>
-            <div class="form-group username">
-                <input type="text" placeholder="User Name" class="form-control" id="usr">
-            </div>
-            <div class="form-group password">
-                <input type="password" placeholder="Password" class="form-control" id="pwd">
+        <div class="card login">
+            <div class="card-body">
+                <div class="form-group username first">
+                    <input type="text" placeholder="First Name" class="form-control" id="usr">
+                </div>
+                <div class="form-group username last">
+                    <input type="text" placeholder="Last Name" class="form-control" id="usr">
+                </div>
+                <div class="form-group email">
+                    <input type="text" placeholder="Email ID" class="form-control" id="usr">
+                </div>
+                <div class="form-group password">
+                    <input type="password" placeholder="Password" class="form-control" id="pwd">
+                </div>
+                <div class="form-group password">
+                    <input type="password" placeholder="Confirm Password" class="form-control" id="pwd">
+                </div>
+                <div class="chck">
+                <!-- Default checked -->
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
+                  <label class="custom-control-label" for="defaultChecked2">I have read and agree to the Data Privacy Policy </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultChecked3" checked>
+                  <label class="custom-control-label" for="defaultChecked2">I agree that Sarawak Tourism Board may use my email address to contact me for purpose of verification. And where relevant, for purpose of business development and/or partnership</label>
+                </div>
+                </div>
+                <a href="#" class="btn btn-primary gren">REGISTER</a>
+                <a href="#" class="btn btn-primary gry">CANCEL</a>
             </div>
         </div>
     </div>
