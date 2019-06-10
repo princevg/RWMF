@@ -113,7 +113,7 @@
             views: {
                 'login@': {
                     controller: 'RegisterController',
-                    templateUrl: 'components/user/register.html',
+                    templateUrl: 'components/user/newuser.html',
                     controllerAs: 'vm'
                 }
             }
@@ -148,11 +148,12 @@
         $urlRouterProvider.otherwise('/home');
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
+    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', 'CoreService'];
 
-    function run($rootScope, $location, $cookieStore, $http) {
+    function run($rootScope, $location, $cookieStore, $http, CoreService) {
         // keep user logged in after page refresh
         $(".button-collapse").sideNav();
+        CoreService.activateSplash();
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line

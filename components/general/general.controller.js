@@ -11,7 +11,11 @@
         $rootScope.pageName = "home";
         CoreService.getBusScheduleDetails().then(function(res) {
             vm.busSchedule = res.data.bus_schedule.schedule;
-        }, function() {}).catch(function() {})
+        }, function() {
+            vm.busSchedule = "/admin/uploads/rwmf_image/rwmf_bus_1.png";
+        }).catch(function() {
+            vm.busSchedule = "/admin/uploads/rwmf_image/rwmf_bus_1.png";
+        })
         vm.busSchedule
     }
 

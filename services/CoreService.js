@@ -102,6 +102,12 @@
             }
             return false;
         };
+        service.activateSplash = function() {
+            $rootScope.isSplashScreen = true;
+            $timeout(function() {
+                $rootScope.isSplashScreen = false;
+            }, 3000)
+        };
 
     };
     CoreService.$inject = ['$rootScope', 'CoreHttpRequest', '$state', '$http', '$q', '$timeout'];

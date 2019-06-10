@@ -1,12 +1,14 @@
 {
+
     "name": "RWMF",
     "short_name": "RWMF",
-    "theme_color": "#298979",
-    "background_color": "#298979",
+    "description": "Rainforest World Music Festival",
+    "scope": ".",
+    "start_url": "/",
     "display": "standalone",
     "orientation": "portrait",
-    "Scope": "/",
-    "start_url": ".",
+    "theme_color": "#298979",
+    "background_color": "#298979",
     "icons": [{
             "src": "images/icons/icon-72x72.png",
             "sizes": "72x72",

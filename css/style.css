@@ -2,11 +2,27 @@
     padding: 10px;
 }
 
+html {
+    height: 100%;
+}
+
 .home.loading {
     background-image: url(../img/loader.gif), url(../img/inner_bg-min.jpg);
     background-position: center center, center center;
     background-repeat: no-repeat, repeat;
     background-size: 100px 100px, cover;
+}
+
+html.splash:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-position: center center;
+    background-size: 364px;
+    background-repeat: no-repeat;
+    background-image: url(../img/load.png);
 }
 
 body {
