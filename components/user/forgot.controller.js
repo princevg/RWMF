@@ -8,7 +8,7 @@
 
     function ForgotController(UserService, $rootScope) {
         var vm = this;
-        console.log(vm);
+        $rootScope.pageName = "login";
     }
 
 })();

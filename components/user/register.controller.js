@@ -9,7 +9,7 @@
 
     function RegisterController(UserService, $location, $rootScope, FlashService) {
         var vm = this;
-
+        $rootScope.pageName = "login";
         vm.register = register;
 
         function register() {

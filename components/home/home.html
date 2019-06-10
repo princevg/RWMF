@@ -16,9 +16,9 @@
             </label>
         </div>
     </div>
-    <div class="container mt-2">
+    <div class="container mt-4" ng-if="!isLoading">
         <div class="row">
-            <div class="col-sm-6 mt-5 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
+            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
                     <!-- Card image -->
@@ -33,7 +33,7 @@
                         <!-- Title -->
                         <h4 class="card-title"><strong>{{ event.time }}</strong></h4>
                         <!-- Subtitle -->
-                        <h6 class="indigo-text py-2">{{ event.date }}</h6>
+                        <h6 class="indigo-text py-1">{{ event.date }}</h6>
                     </div>
                     <h3 class="prgrmn">{{ event.name }}</h3>
                 </div>

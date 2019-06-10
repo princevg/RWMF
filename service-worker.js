@@ -64,6 +64,9 @@ var PrecacheConfig = [
         ["/components/program/program.controller.js", "toPnwr5inf8aths1oBdGlf8aths1o"],
         ["/components/program/registeredProgram.html", "f8aths1oinH5f4fqzpsXBdGlf8aths1o"],
         ["/components/general/general.controller.js", "toPnwr5inH5f4fqzpsXBdGlf8aths1o"],
+        ["/components/program/programDetail.controller.js", "toPnwr5i8aths1BdGlf8aths1o"],
+        ["/components/program/programDetail.html", "toPnf8aths18aths1oBdGlf8aths1o"],
+        ["/components/program/program.controller.js", "toPnwr5inf8f8aths1Glf8aths1o"],
         ["/components/general/ticketInfo.html", "toPnwr5f8aths1ofqzpsXBdGlf8aths1o"],
         ["/css/addons", "SBZQbSHug6b1uHdTKeJyd1ygxD6xVTN5"],
         ["/css/all.css", "40NK6RCBFWZ7pK9s1uNRu9vaZQHNGajE"],
@@ -260,11 +263,18 @@ var isPathWhitelisted = function(whitelist, absoluteUrlString) {
     });
 };
 
-var populateCurrentCacheNames = function(precacheConfig,
-    cacheNamePrefix, baseUrl) {
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+var populateCurrentCacheNames = function(precacheConfig, cacheNamePrefix, baseUrl) {
     var absoluteUrlToCacheName = {};
     var currentCacheNamesToAbsoluteUrl = {};
-
     precacheConfig.forEach(function(cacheOption) {
         var absoluteUrl = new URL(cacheOption[0], baseUrl).toString();
         var cacheName = cacheNamePrefix + absoluteUrl + '-' + cacheOption[1];

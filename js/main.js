@@ -21125,7 +21125,7 @@ function loadTemplatesBy(e, t) {
                     n.onload = function() {
                         if (e = window.ClipboardJS)
                             for (; t.length;) t.pop()()
-                    }, n.src = "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js", i.appendChild(n)
+                    }, n.src = "js/libs/clipboard.js", i.appendChild(n)
                 }
                 Prism.plugins.toolbar.registerButton("copy-to-clipboard", function(n) {
                     var i = document.createElement("button");

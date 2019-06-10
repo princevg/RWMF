@@ -34,8 +34,44 @@
                 });
             return deferred.promise;
         }
+        service.getBusScheduleDetails = function() {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("busschedule")
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        }
+        service.getProgramDetails = function(id) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("programme_detail", { programme_id: id })
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        }
+        service.removeLoader = function() {
+            $timeout(function() {
+                $rootScope.isLoading = false;
+            }, 1000);
+        };
+        service.addLoader = function() {
+            $rootScope.isLoading = true;
+        };
         service.recall = function() {
-            setTimeout(function() {
+            $timeout(function() {
                 if (document.createEvent) { // W3C
                     var ev = document.createEvent('Event');
                     ev.initEvent('resize', true, true);

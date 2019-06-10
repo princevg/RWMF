@@ -38,12 +38,40 @@
                         controllerAs: 'headerctrl'
                     }
                 }
+            }).state('programDetail', {
+                url: '/programDetail/:id',
+                views: {
+                    'innerPages': {
+                        controller: 'ProgramDetailController',
+                        templateUrl: 'components/program/programDetail.html',
+                        controllerAs: 'pgmctrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
+                }
             }).state('ticketInfo', {
                 url: '/ticketInfo',
                 views: {
                     'innerPages': {
                         controller: 'GeneralController',
                         templateUrl: 'components/general/ticketInfo.html',
+                        controllerAs: 'genctrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
+                }
+            }).state('busSchedule', {
+                url: '/busSchedule',
+                views: {
+                    'innerPages': {
+                        controller: 'GeneralController',
+                        templateUrl: 'components/general/busSchedule.html',
                         controllerAs: 'genctrl'
                     },
                     'header': {
