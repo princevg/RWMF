@@ -35,9 +35,8 @@ html.splash:after {
     height: 100%;
     top: 0;
     background-position: center center;
-    background-size: 364px;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../img/load.png);
 }
 
 body {
@@ -793,5 +792,23 @@ table.table th {
     }
     .location li {
         padding-left: 40px;
+    }
+}
+
+
+/* App Media Queries*/
+
+
+/* @media (max-width: 576px) and (display-mode: standalone) {} */
+
+@media (min-width: 320px) and (max-width: 520px) and (display-mode: standalone) {
+    html.splash:after {
+        background-image: url(../images/splash/launch-640x1136.png);
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1250px) and (display-mode: standalone) {
+    html.splash:after {
+        background-image: url(../images/splash/launch-750x1294.png);
     }
 }
