@@ -54,7 +54,6 @@
                 .then(function(response) {
                     if (response.status == 200) {
                         deferred.resolve(response.data);
-
                     }
                 }, function(response) {
                     response.data = false;

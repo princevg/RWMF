@@ -16,7 +16,7 @@
         var vm = this;
         $rootScope.pageName = "home";
         $rootScope.isLoading = true;
-        CoreService.getProgramDetails(parseInt($stateParams.program_id)).then(function(res) {
+        CoreService.getProgramDetails($stateParams.program_id).then(function(res) {
             vm.programDetail = res.data.programme_data;
             $rootScope.isLoading = false;
         }, function(res) {

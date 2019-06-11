@@ -619,6 +619,12 @@ table.table th {
 
 /* Landscape tablets and medium desktops */
 
+@media (min-width:1440px) {
+    .double-nav .button-collapse {
+        display: block;
+    }
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
     html {
         background-position: 90% 90%!important;
@@ -667,6 +673,7 @@ table.table th {
     }
     h2.text-center.event-header {
         font-size: 1.3rem;
+        padding-top: 1rem;
     }
     /*login*/
     .login input {

@@ -8,7 +8,7 @@
             service.get = function(path) {
                 return $http.get(getUrl(path));
             };
-            service.post = function(path, jsonData, id) {
+            service.post = function(path, jsonData) {
                 return $http.post(getUrl(path), jsonData);
             };
 
