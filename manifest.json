@@ -3,7 +3,7 @@
     "name": "RWMF",
     "short_name": "RWMF",
     "description": "Rainforest World Music Festival",
-    "scope": ".",
+    "scope": "/",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait",
