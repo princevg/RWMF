@@ -31,7 +31,7 @@
                     <!-- Card content -->
                     <div class="card-body card-body-cascade text-center dattim">
                         <!-- Title -->
-                        <h4 class="card-title"><strong>{{ event.time }}</strong></h4>
+                        <h4 class="card-title"><strong>{{ event.time | to24Hrs}}</strong></h4>
                         <!-- Subtitle -->
                         <h6 class="indigo-text py-1">{{ event.date }}</h6>
                     </div>

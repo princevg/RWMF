@@ -4,6 +4,24 @@
     angular
         .module('RWMF', ['ui.router', 'ngCookies', 'ngSanitize'])
         .config(config)
+        .filter('filterWithDay', ['CoreService', function(CoreService) {
+            return function(items, day) {
+                if (items.length > 0) {
+                    var filtered = [];
+                    for (var i = 0; i < items.length; i++) {
+                        var item = items[i];
+                        if (items[i].day === day) {
+                            filtered.push(item);
+                        }
+                    }
+                    return filtered;
+                }
+            };
+        }]).filter('to24Hrs', ['CoreService', function(CoreService) {
+            return function(item) {
+                return item ? CoreService.convert12to24(item) : item;
+            };
+        }])
         .run(run);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -114,7 +132,7 @@
                 'login@': {
                     controller: 'RegisterController',
                     templateUrl: 'components/user/newuser.html',
-                    controllerAs: 'vm'
+                    controllerAs: 'regCtrl'
                 }
             }
         })
@@ -125,7 +143,7 @@
                 'login@': {
                     controller: 'ForgotController',
                     templateUrl: 'components/user/forgot.html',
-                    controllerAs: 'vm'
+                    controllerAs: 'forgotCtrl'
                 }
             }
         })
