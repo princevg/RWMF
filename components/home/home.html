@@ -18,7 +18,7 @@
     </div>
     <div class="container mt-4" ng-if="!isLoading">
         <div class="row">
-            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
+            <div ng-click="homectrl.gotoDetail(event.id)" class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
                     <!-- Card image -->

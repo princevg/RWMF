@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('RWMF', ['ui.router', 'ngCookies'])
+        .module('RWMF', ['ui.router', 'ngCookies', 'ngSanitize'])
         .config(config)
         .run(run);
 
@@ -39,7 +39,7 @@
                     }
                 }
             }).state('programDetail', {
-                url: '/programDetail/:id',
+                url: '/programDetail/:program_id',
                 views: {
                     'innerPages': {
                         controller: 'ProgramDetailController',
@@ -153,7 +153,9 @@
     function run($rootScope, $location, $cookieStore, $http, CoreService) {
         // keep user logged in after page refresh
         $(".button-collapse").sideNav();
-        CoreService.activateSplash();
+        if (CoreService.isStandalone()) {
+            CoreService.activateSplash();
+        }
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line

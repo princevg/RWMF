@@ -50,7 +50,7 @@
         }
         service.getProgramDetails = function(id) {
             var deferred = $q.defer();
-            CoreHttpRequest.post("programme_detail", { programme_id: id })
+            CoreHttpRequest.post("programme_detail", { programmeid: id })
                 .then(function(response) {
                     if (response.status == 200) {
                         deferred.resolve(response.data);
@@ -108,7 +108,22 @@
                 $rootScope.isSplashScreen = false;
             }, 3000)
         };
-
+        service.isStandalone = function() {
+            return (window.matchMedia('(display-mode: standalone)').matches);
+        }
+        service.convert12to24 = function(time) {
+            var hrs = Number(time.match(/^(\d+)/)[1]);
+            var mnts = Number(time.match(/:(\d+)/)[1]);
+            time = time.toUpperCase();
+            var format = time.indexOf("PM") > 0 ? "PM" : "AM";
+            if (format == "PM" && hrs < 12) hrs = hrs + 12;
+            if (format == "AM" && hrs == 12) hrs = hrs - 12;
+            var hours = hrs.toString();
+            var minutes = mnts.toString();
+            if (hrs < 10) hours = "0" + hours;
+            if (mnts < 10) minutes = "0" + minutes;
+            return hours + ":" + minutes;
+        }
     };
     CoreService.$inject = ['$rootScope', 'CoreHttpRequest', '$state', '$http', '$q', '$timeout'];
     angular.module('RWMF')
