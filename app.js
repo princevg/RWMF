@@ -48,7 +48,7 @@
                     'innerPages': {
                         controller: 'ProgramController',
                         templateUrl: 'components/program/registeredProgram.html',
-                        controllerAs: 'pgmctrl'
+                        controllerAs: 'regPgmctrl'
                     },
                     'header': {
                         controller: 'HeaderController',
@@ -113,56 +113,78 @@
                     }
                 }
             })
-
-        .state('login', {
-            url: '/login',
-            views: {
-                'login@': {
-                    controller: 'LoginController',
-                    templateUrl: 'components/user/login.html',
-                    controllerAs: 'loginCtrl'
+            .state('login', {
+                url: '/login',
+                views: {
+                    'login@': {
+                        controller: 'LoginController',
+                        templateUrl: 'components/user/login.html',
+                        controllerAs: 'loginCtrl'
+                    }
                 }
-            }
 
-        })
-
-        .state('register', {
-            url: '/register',
-            views: {
-                'login@': {
-                    controller: 'RegisterController',
-                    templateUrl: 'components/user/newuser.html',
-                    controllerAs: 'regCtrl'
+            })
+            .state('register', {
+                url: '/register',
+                views: {
+                    'login@': {
+                        controller: 'RegisterController',
+                        templateUrl: 'components/user/newuser.html',
+                        controllerAs: 'regCtrl'
+                    }
                 }
-            }
-        })
-
-        .state('forgot', {
-            url: '/forgot',
-            views: {
-                'login@': {
-                    controller: 'ForgotController',
-                    templateUrl: 'components/user/forgot.html',
-                    controllerAs: 'forgotCtrl'
+            })
+            .state('forgot', {
+                url: '/forgot',
+                views: {
+                    'login@': {
+                        controller: 'ForgotController',
+                        templateUrl: 'components/user/forgot.html',
+                        controllerAs: 'forgotCtrl'
+                    }
                 }
-            }
-        })
-
-        .state('dashboard', {
-            url: '/dashboard',
-            views: {
-                'innerPages@': {
-                    controller: 'DashController',
-                    templateUrl: 'components/dashboard/dashboard.html',
-                    controllerAs: 'vm'
-                },
-                'header@': {
-                    controller: 'HeaderController',
-                    templateUrl: 'components/header/header.html',
-                    controllerAs: 'vm'
+            })
+            .state('dashboard', {
+                url: '/dashboard',
+                views: {
+                    'innerPages@': {
+                        controller: 'DashController',
+                        templateUrl: 'components/dashboard/dashboard.html',
+                        controllerAs: 'vm'
+                    },
+                    'header@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'vm'
+                    }
                 }
-            }
-        })
+            })
+            .state('about', {
+                url: '/about',
+                views: {
+                    'innerPages@': {
+                        templateUrl: 'components/static/about.html'
+                    },
+                    'header@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('contact', {
+                url: '/contact',
+                views: {
+                    'innerPages@': {
+                        templateUrl: 'components/static/contact.html'
+                    },
+                    'header@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
         $urlRouterProvider.otherwise('/home');
     }
 

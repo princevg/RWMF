@@ -105,10 +105,14 @@
                 });
             return deferred.promise;
         };
-        service.removeLoader = function() {
-            $timeout(function() {
+        service.removeLoader = function(timeout) {
+            if (timeout) {
+                $timeout(function() {
+                    $rootScope.isLoading = false;
+                }, timeout);
+            } else {
                 $rootScope.isLoading = false;
-            }, 1000);
+            }
         };
         service.addLoader = function() {
             $rootScope.isLoading = true;

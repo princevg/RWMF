@@ -637,6 +637,11 @@ input.has-error[type="checkbox"]:focus {
     width: 100%;
 }
 
+.registeredpgm-alert {
+    width: 400px;
+    margin-top: 20%;
+}
+
 
 /* Media Queries */
 
