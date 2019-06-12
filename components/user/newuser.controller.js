@@ -19,18 +19,22 @@
             CoreService.createUser(vm.user)
                 .then(function(response) {
                     if (response.status == 200) {
-                        FlashService.Success(response.data.display, true);
+                        var message = response.data && response.data ? response.data : "Success";
+                        FlashService.Success(message, true);
                         FlashService.clearFlashMessageOntimeout(8000);
                         $state.go('login');
                     } else {
-                        FlashService.Error(response.data.display);
+                        var message = response.data && response.data ? response.data : "Unknown Error";
+                        FlashService.Error(message);
                         FlashService.clearFlashMessageOntimeout(8000);
                     }
                 }, function(err) {
-                    FlashService.Error(err.data.display);
+                    var message = err.data && err.data ? err.data : "Unknown Error";
+                    FlashService.Error(message);
                     FlashService.clearFlashMessageOntimeout(8000);
                 }).catch(function(err) {
-                    FlashService.Error(err.data.display);
+                    var message = err.data && err.data ? err.data : "Unknown Error";
+                    FlashService.Error(message);
                     FlashService.clearFlashMessageOntimeout(8000);
                 });
         }

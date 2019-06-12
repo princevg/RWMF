@@ -10,21 +10,42 @@
                 return $sce.trustAsResourceUrl(url);
             };
         }]);
-    ProgramDetailController.$inject = ['$rootScope', 'CoreService', '$state', '$stateParams'];
+    ProgramDetailController.$inject = ['$rootScope', 'CoreService', '$state', '$stateParams', 'FlashService'];
 
-    function ProgramDetailController($rootScope, CoreService, $state, $stateParams) {
+    function ProgramDetailController($rootScope, CoreService, $state, $stateParams, FlashService) {
         var vm = this;
         $rootScope.pageName = "home";
         $rootScope.isLoading = true;
+        vm.register = register;
+
         CoreService.getProgramDetails($stateParams.program_id).then(function(res) {
             vm.programDetail = res.data.programme_data;
             $rootScope.isLoading = false;
         }, function(res) {
-            vm.programDetail = { "id": "4", "name": "ALUNAN KERONCONG (Sarawak)", "code": "4", "day": "1", "date": "Jul 12 2019", "time": "05:00 pm", "type": "1", "type_name": "Event", "image": "https://rwmf.estrradodemo.com/admin/uploads/programme_image/programme_4.png?1560253137", "stage": "5", "stage_name": "Big Tent Stage", "stage_location": "Sarawak Cultural Villag", "stage_latitude": "1.750668211939595", "stage_longitude": "110.31431078910828", "description": "ALUNAN KERONCONG (Sarawak)", "status": "1", "image_name": "programme_4", "gallery": [], "register_status": "0" }
             $rootScope.isLoading = false;
         }).catch(function() {
             $rootScope.isLoading = false;
         });
+
+        function register(id) {
+            if ($rootScope.isLoggedIn) {
+                var token = localStorage["userToken"];
+                var data = {
+                    program_id: id,
+                    utoken: token
+                }
+                CoreService.registerToProgram(data).then(function(response) {
+                    console.log(response)
+                }, function(err) {
+                    console.log(err)
+                }).catch(function(err) {
+                    console.log(err)
+                })
+            } else {
+                FlashService.Warning("Please Login to register");
+                FlashService.clearFlashMessageOntimeout(5000);
+            }
+        }
     }
 
 })();

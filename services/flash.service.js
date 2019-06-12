@@ -12,6 +12,7 @@
 
         service.Success = Success;
         service.Error = Error;
+        service.Warning = Warning;
         service.clearFlashMessageOntimeout = clearFlashMessageOntimeout;
         initService();
 
@@ -61,6 +62,14 @@
             $rootScope.flash = {
                 message: message,
                 type: 'error',
+                keepAfterLocationChange: keepAfterLocationChange
+            };
+        }
+
+        function Warning(message, keepAfterLocationChange) {
+            $rootScope.flash = {
+                message: message,
+                type: 'warning',
                 keepAfterLocationChange: keepAfterLocationChange
             };
         }

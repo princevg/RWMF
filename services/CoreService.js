@@ -29,11 +29,14 @@
                 });
             return deferred.promise;
         };
+
         service.SetCredentials = function(userToken) {
             localStorage["userToken"] = userToken;
+            $rootScope.isLoggedIn = true;
         };
         service.ClearCredentials = function() {
             delete localStorage["userToken"];
+            delete $rootScope.isLoggedIn;
         };
         service.getAllEvents = function() {
             var deferred = $q.defer();
@@ -75,7 +78,33 @@
                     deferred.reject(response.data);
                 });
             return deferred.promise;
-        }
+        };
+        service.getAllRegisteredProgrammes = function(data) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("registered_programmes", data)
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        };
+        service.registerToProgram = function(data) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("register_programme", data)
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        };
         service.removeLoader = function() {
             $timeout(function() {
                 $rootScope.isLoading = false;

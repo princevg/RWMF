@@ -25,7 +25,7 @@
                     CoreService.SetCredentials(response.data.user_token);
                     $state.go('home');
                 } else {
-                    var message = err.data && response.data.display ? response.data.display : "Unknown Error Try after some time"
+                    var message = response.data && response.data.display ? response.data.display : "Unknown Error Try after some time"
                     FlashService.Error(message);
                     FlashService.clearFlashMessageOntimeout(5000);
                 }
