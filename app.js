@@ -120,7 +120,7 @@
                 'login@': {
                     controller: 'LoginController',
                     templateUrl: 'components/user/login.html',
-                    controllerAs: 'loginctrl'
+                    controllerAs: 'loginCtrl'
                 }
             }
 

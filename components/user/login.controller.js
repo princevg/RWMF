@@ -5,28 +5,38 @@
         .module('RWMF')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService', '$rootScope'];
+    LoginController.$inject = ['$state', 'CoreService', 'FlashService', '$rootScope'];
 
-    function LoginController($location, AuthenticationService, FlashService, $rootScope) {
+    function LoginController($state, CoreService, FlashService, $rootScope) {
         var vm = this;
         $rootScope.pageName = "login";
+        vm.user = {};
         vm.login = login;
 
         (function initController() {
             // reset login status
-            AuthenticationService.ClearCredentials();
+            CoreService.ClearCredentials();
         })();
 
         function login() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function(response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/');
+            CoreService.Login(vm.user).then(function(response) {
+                if (response.status == 200) {
+                    CoreService.SetCredentials(response.data.user_token);
+                    $state.go('home');
                 } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
+                    var message = err.data && response.data.display ? response.data.display : "Unknown Error Try after some time"
+                    FlashService.Error(message);
+                    FlashService.clearFlashMessageOntimeout(5000);
                 }
+            }, function(err) {
+                var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
+                FlashService.Error(message);
+                FlashService.clearFlashMessageOntimeout(5000);
+            }).catch(function(err) {
+                var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
+                FlashService.Error(message);
+                FlashService.clearFlashMessageOntimeout(5000);
             });
         };
     }

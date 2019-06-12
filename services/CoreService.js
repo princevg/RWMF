@@ -16,16 +16,12 @@
                 });
             return deferred.promise;
         }
-        service.login = function(data) {
+        service.Login = function(data) {
             var deferred = $q.defer();
-            var user = {};
-            user.username = data.username;
-            user.password = data.password;
-            CoreHttpRequest.post("login", user)
+            CoreHttpRequest.post("login", data)
                 .then(function(response) {
                     if (response.status == 200) {
                         deferred.resolve(response.data);
-
                     }
                 }, function(response) {
                     response.data = false;
@@ -33,7 +29,12 @@
                 });
             return deferred.promise;
         };
-
+        service.SetCredentials = function(userToken) {
+            localStorage["userToken"] = userToken;
+        };
+        service.ClearCredentials = function() {
+            delete localStorage["userToken"];
+        };
         service.getAllEvents = function() {
             var deferred = $q.defer();
             CoreHttpRequest.post("dashboard")
