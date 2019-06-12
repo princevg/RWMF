@@ -5,9 +5,9 @@
         .module('RWMF')
         .controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['CoreService', '$state', '$rootScope', 'FlashService'];
+    RegisterController.$inject = ['CoreService', '$state', '$rootScope', 'FlashService', '$timeout'];
 
-    function RegisterController(CoreService, $state, $rootScope, FlashService) {
+    function RegisterController(CoreService, $state, $rootScope, FlashService, $timeout) {
         var vm = this;
         vm.user = {};
         $rootScope.pageName = "login";
@@ -20,15 +20,18 @@
                 .then(function(response) {
                     if (response.status == 200) {
                         FlashService.Success(response.data.display, true);
+                        FlashService.clearFlashMessageOntimeout(8000);
                         $state.go('login');
                     } else {
                         FlashService.Error(response.data.display);
-                        vm.dataLoading = false;
+                        FlashService.clearFlashMessageOntimeout(8000);
                     }
                 }, function(err) {
                     FlashService.Error(err.data.display);
+                    FlashService.clearFlashMessageOntimeout(8000);
                 }).catch(function(err) {
-
+                    FlashService.Error(err.data.display);
+                    FlashService.clearFlashMessageOntimeout(8000);
                 });
         }
 
