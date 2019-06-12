@@ -611,6 +611,16 @@ table.table th {
     opacity: .5;
 }
 
+.program-alert {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.btn-gray {
+    background-color: gray;
+    pointer-events: none;
+}
+
 .has-error {
     border: 1px solid red;
 }
