@@ -5,14 +5,14 @@
         .module('RWMF')
         .factory('FlashService', FlashService);
 
-    FlashService.$inject = ['$rootScope'];
+    FlashService.$inject = ['$rootScope', '$timeout'];
 
-    function FlashService($rootScope) {
+    function FlashService($rootScope, $timeout) {
         var service = {};
 
         service.Success = Success;
         service.Error = Error;
-
+        service.clearFlashMessageOntimeout = clearFlashMessageOntimeout;
         initService();
 
         return service;
@@ -33,6 +33,20 @@
                     }
                 }
             }
+        }
+
+        function clearFlashMessageOntimeout(timeout) {
+            $timeout(function() {
+                var flash = $rootScope.flash;
+                if (flash) {
+                    if (!flash.keepAfterLocationChange) {
+                        delete $rootScope.flash;
+                    } else {
+                        // only keep for a single location change
+                        flash.keepAfterLocationChange = false;
+                    }
+                }
+            }, timeout);
         }
 
         function Success(message, keepAfterLocationChange) {

@@ -18,12 +18,12 @@
     </div>
     <div class="container mt-4" ng-if="!isLoading">
         <div class="row">
-            <div ng-click="homectrl.gotoDetail(event.id)" class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
+            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
                     <!-- Card image -->
                     <div class="view view-cascade overlay brdr">
-                        <img class="card-img-top" src="{{ event.image }}" alt="Card image cap">
+                        <img ng-click="homectrl.gotoDetail(event.id)" class="card-img-top" src="{{ event.image }}" alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
